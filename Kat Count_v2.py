@@ -1,10 +1,9 @@
 import string
 from os.path import exists
-#check that the file exists
+
 user_filename = "dat_exp2.txt"
 file_exists = exists(user_filename)
-if file_exists == True:
-#check that the file can be openened by the programme           
+if file_exists == True:      
     with open(user_filename,"r", encoding = 'utf8') as text_file:
         user_data = text_file.readlines()
 else:
@@ -23,7 +22,6 @@ Returns:
         cat_from_data.append(data_line[0:4])
     return(cat_from_data)
 
-#apply the function return_categories to the list "user data"
 categ_dka = return_categ(user_data)
 
 ###CREATE A CATEG FREQUENCY DICTIONARY
