@@ -24,37 +24,23 @@ Returns:
 
 categ_dka = return_categ(user_data)
 
-###CREATE A CATEG FREQUENCY DICTIONARY
-# create a set set of categories
 categ_set = set(categ_dka)
-#count the number of words
 categ_set_sorted = sorted(categ_set)
-#count the number of categories
 categ_count = len(categ_set)
-# create the list for the frequency values
 categ_occurrence = []
-# count the number of categories
 for categ in categ_set:
     categ_occurrence.append(categ_dka.count(categ))
-# create a list with the elements of date_set as its elements
 categ_set_list = []
 for categ in categ_set:
     categ_set_list =  categ_set_list + [categ]
-# create a dictionary from the two list with dictionary comprehension
 categ_dict = {categ_set_list[i]: categ_occurrence[i] for i in range(len(categ_set_list))}
 print(categ_dict)
 
-### SAVE THE DICTIONARY TO FILE
-
-# save the data as tuples ordered by key alphabetically (from a to z)
 tuples_alphabetically = sorted(categ_dict.items())
-# ask the user for a file name to save the word counts in
 file_name = input("The outcome will be saved in a text file. Please input a name for the text file: ")
-#error check for the user input file name
 if file_name == "" :
     print("You typed an empty string")
     exit()
-# write the word counts in different orders in a file
 with open(file_name + '.csv',"w") as results_file:
     results_file.write("--- FREQUENCY COUNT SORTED ALPHABETICALLY---" + "\n")
     for categ in tuples_alphabetically:
